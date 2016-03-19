@@ -1,0 +1,43 @@
+
+Steps to install pre-requisites will be there in Readme.txt
+Once you are done with installing jdk, mysql, maven follow the below steps to run the project:
+
+Step 1)Check your mysql local host username and password
+
+	This project assusmes that your mysqld would be running on port 3306 (default) with below 
+	database credentials of root
+	password:root
+
+	If your mysql configuration doesnt match with the above details then make the below changes
+	a) Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\CodeFolder\src\main\webapp\WEB-INF
+	b) Open application-beans.xml in WordPad
+	c) please find below xml snippet, and make the changes in port, username and password
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/OnlineTest" />
+		<beans:property name="username" value="root" />
+		<beans:property name="password" value="root" />
+
+Step 2) Create and initialize database
+
+	a)Extract Danesh_Qureshi-SoftwareEngineer-Java.zip file to a <location>
+	b)Run CMD as Administrator
+	c)Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\SQLFolder
+	d)run the following command: mysql -uroot -proot < database.sql
+	<note: if your mysql root password is differen, then please specify above>
+	--The above command will create the database - OnlineTest and create all necessary tables with initial data
+
+Step 3) Run the project
+	a)Extract Danesh_Qureshi-SoftwareEngineer-Java.zip file to a <location>
+	b)Run CMD as Administrator
+	c)Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\CodeFolder
+	d)run the following command mvn clean install tomcat7:run
+		--this step will take time since it will download all the dependencies
+	e)go to : http://localhost:8080/online/Home
+	f)enter below credentials to login 
+		username: crossover1 
+		password:crossover1
+	g)once you login, you will be getting the first question on screen
+	h)To navigate to another question, go to the select another question on combo box and press go
+	i)You can anytime click on  'End test' button and then click on 'Finish Test' button
+	j)You grade will be stored in database table test_history
+		--you can query your grade by the following query
+		select * from test_history where student_id = 1
