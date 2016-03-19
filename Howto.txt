@@ -9,7 +9,7 @@ Step 1)Check your mysql local host username and password
 	password:root
 
 	If your mysql configuration doesnt match with the above details then make the below changes
-	a) Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\CodeFolder\src\main\webapp\WEB-INF
+	a) Navigate to \src\main\webapp\WEB-INF
 	b) Open application-beans.xml in WordPad
 	c) please find below xml snippet, and make the changes in port, username and password
 		<beans:property name="url" value="jdbc:mysql://localhost:3306/OnlineTest" />
@@ -18,17 +18,15 @@ Step 1)Check your mysql local host username and password
 
 Step 2) Create and initialize database
 
-	a)Extract Danesh_Qureshi-SoftwareEngineer-Java.zip file to a <location>
 	b)Run CMD as Administrator
-	c)Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\SQLFolder
+	c)Navigate to SQLFolder
 	d)run the following command: mysql -uroot -proot < database.sql
 	<note: if your mysql root password is differen, then please specify above>
 	--The above command will create the database - OnlineTest and create all necessary tables with initial data
 
 Step 3) Run the project
-	a)Extract Danesh_Qureshi-SoftwareEngineer-Java.zip file to a <location>
-	b)Run CMD as Administrator
-	c)Navigate to <location>\Danesh_Qureshi-SoftwareEngineer-Java\CodeFolder
+
+	c)Navigate to root directory containing pom.xml
 	d)run the following command mvn clean install tomcat7:run
 		--this step will take time since it will download all the dependencies
 	e)go to : http://localhost:8080/online/Home
